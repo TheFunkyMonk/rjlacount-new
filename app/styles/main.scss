@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@responsive {
+
+	.top-8 {
+		top: theme('spacing.8');
+	}
+}
+
 @import 'fonts';
 
 ::selection {
