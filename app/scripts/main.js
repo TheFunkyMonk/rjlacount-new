@@ -1,12 +1,5 @@
-const checkDarkMode = () => {
-	if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-		return true;
-	}
-	return false;
-}
+import { initDarkMode } from './_partials/darkmode';
+import { initAnimations } from './_partials/animations';
 
-if (checkDarkMode()) {
-	document.documentElement.classList.add('mode-dark');
-} else {
-	document.documentElement.classList.remove('mode-dark');
-}
+initDarkMode();
+initAnimations();

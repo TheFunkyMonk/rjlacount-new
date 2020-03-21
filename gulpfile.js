@@ -9,6 +9,9 @@ const del = require('del');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
 const cssnano = require('cssnano');
+const webpack = require('webpack');
+const webpackStream = require('webpack-stream');
+const { webpackDev, webpackProd } = require('./webpack.config');
 const { argv } = require('yargs');
 
 const $ = gulpLoadPlugins();
@@ -18,6 +21,8 @@ const port = argv.port || 9000;
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
+
+const webpackConfiguration = isProd ? webpackProd : webpackDev;
 
 const TailwindExtractor = (content) => {
 	return content.match(/[A-z0-9-:\/]+/g);
@@ -56,14 +61,10 @@ function styles() {
 };
 
 function scripts() {
-	return src('app/scripts/**/*.js', {
-		sourcemaps: !isProd,
-	})
+	return src('app/scripts/main.js')
 		.pipe($.plumber())
-		.pipe($.babel())
-		.pipe(dest('.tmp/scripts', {
-			sourcemaps: !isProd ? '.' : false,
-		}))
+		.pipe(webpackStream(webpackConfiguration), webpack)
+		.pipe(dest('.tmp/scripts'))
 		.pipe(server.reload({ stream: true }));
 };
 
