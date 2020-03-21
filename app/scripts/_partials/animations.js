@@ -1,6 +1,64 @@
 import anime from 'animejs/lib/anime.es.js';
+import scrollTriggers from 'scroll-triggers';
 
-const initAnimations = () => {
+const initScrollTriggers = () => {
+	const enterAnimate = document.querySelectorAll('.enter-animate');
+	const enterFade = document.querySelectorAll('.enter-fade');
+
+	[enterAnimate, enterFade].forEach((el) => {
+		anime({
+			targets: el,
+			opacity: 0
+		});
+	});
+
+	enterAnimate.forEach(item => {
+		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
+	});
+
+	scrollTriggers([
+		{
+			el: enterAnimate,
+			inView: (el, options) => {
+				if (!el.classList.contains('entered')) {
+					anime({
+						targets: el,
+						opacity: 1
+					});
+					anime({
+						targets: el.querySelectorAll('span'),
+						easing: 'easeInOutQuart',
+						scale: ['0.5', 1],
+						opacity: [0, 1],
+						translateZ: 0,
+						duration: 500,
+						delay: (el, i) => 70 * i
+					});
+					el.classList.add('entered');
+				}
+			}
+		}
+	]);
+
+	scrollTriggers([
+		{
+			el: enterFade,
+			inView: (el, options) => {
+				if (!el.classList.contains('entered')) {
+					anime({
+						targets: el,
+						easing: 'easeInOutQuart',
+						opacity: 1,
+						duration: 500
+					});
+					el.classList.add('entered');
+				}
+			}
+		}
+	]);
+}
+
+const initHeroAnimation = () => {
 	const one = document.querySelector('#intro-one');
 	const two = document.querySelector('#intro-two');
 	const three = document.querySelector('#intro-three');
@@ -64,7 +122,11 @@ const initAnimations = () => {
 			opacity: 1,
 			duration: 1000
 		}, '-=1000')
+}
 
+const initAnimations = () => {
+	initHeroAnimation();
+	initScrollTriggers();
 }
 
 export { initAnimations }
