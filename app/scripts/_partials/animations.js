@@ -1,26 +1,20 @@
 import anime from 'animejs/lib/anime.es.js';
 import scrollTriggers from 'scroll-triggers';
 
+import { elements } from './elements';
+
 const initScrollTriggers = () => {
-	const enterAnimate = document.querySelectorAll('.enter-animate');
-	const enterFade = document.querySelectorAll('.enter-fade');
-
-	const firstSection = document.querySelector('#section-one');
-	const four = document.querySelector('#intro-four');
-
-	[enterAnimate, enterFade].forEach((el) => {
-		anime.set(el, {
-			opacity: 0
-		});
+	anime.set([elements.enterAnimate, elements.enterFade], {
+		opacity: 0
 	});
 
-	enterAnimate.forEach(item => {
+	elements.enterAnimate.forEach(item => {
 		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
 	});
 
 	scrollTriggers([
 		{
-			el: enterAnimate,
+			el: elements.enterAnimate,
 			offset: 150,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
@@ -44,7 +38,7 @@ const initScrollTriggers = () => {
 
 	scrollTriggers([
 		{
-			el: enterFade,
+			el: elements.enterFade,
 			offset: 150,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
@@ -62,13 +56,37 @@ const initScrollTriggers = () => {
 
 	scrollTriggers([
 		{
-			el: firstSection,
+			el: elements.firstSection,
+			offset: 150,
 			inView: (el, options) => {
 				anime({
-					targets: four,
+					targets: elements.four,
 					easing: 'easeInOutQuart',
 					opacity: 0,
 					translateY: '-1rem',
+					duration: 500
+				});
+				anime({
+					targets: elements.scrollUp,
+					easing: 'easeInOutQuart',
+					opacity: 1,
+					translateY: ['1rem', 0],
+					duration: 500
+				});
+			},
+			outOfView: (el, options) => {
+				anime({
+					targets: elements.four,
+					easing: 'easeInOutQuart',
+					opacity: 1,
+					translateY: ['-1rem', 0],
+					duration: 500
+				});
+				anime({
+					targets: elements.scrollUp,
+					easing: 'easeInOutQuart',
+					opacity: 0,
+					translateY: [0, '1rem'],
 					duration: 500
 				});
 			}
@@ -77,13 +95,8 @@ const initScrollTriggers = () => {
 }
 
 const initHeroAnimation = () => {
-	const one = document.querySelector('#intro-one');
-	const two = document.querySelector('#intro-two');
-	const three = document.querySelector('#intro-three');
-	const four = document.querySelector('#intro-four');
-	const chevron = four.querySelector('svg');
 
-	[one, two, three].forEach(item => {
+	[elements.one, elements.two, elements.three].forEach(item => {
 		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
 	});
 
@@ -91,18 +104,18 @@ const initHeroAnimation = () => {
 		easing: 'easeInOutQuart'
 	});
 
-	anime.set([one, two, three, four], {
+	anime.set([elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
 
 	tl
 		.add({
-			targets: one,
+			targets: elements.one,
 			opacity: 1,
 			duration: 0
 		})
 		.add({
-			targets: one.querySelectorAll('span'),
+			targets: elements.one.querySelectorAll('span'),
 			scale: ['0.5', 1],
 			opacity: [0, 1],
 			translateZ: 0,
@@ -111,12 +124,12 @@ const initHeroAnimation = () => {
 			complete: () => initScrollTriggers()
 		})
 		.add({
-			targets: two,
+			targets: elements.two,
 			opacity: 1,
 			duration: 0
 		})
 		.add({
-			targets: two.querySelectorAll('span'),
+			targets: elements.two.querySelectorAll('span'),
 			scale: ['0.5', 1],
 			opacity: [0, 1],
 			translateZ: 0,
@@ -124,42 +137,42 @@ const initHeroAnimation = () => {
 			delay: (el, i) => 70 * i
 		}, '+=500')
 		.add({
-			targets: [three, four],
+			targets: [elements.three, elements.four],
 			opacity: 1,
 			duration: 1000
 		}, '+=500')
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: '0.5rem',
 			easing: 'easeInQuart',
 			duration: 750
 		}, '+=500')
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: 0,
 			easing: 'easeOutQuart',
 			duration: 750
 		})
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: '0.5rem',
 			easing: 'easeInQuart',
 			duration: 500
 		}, '+=500')
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: 0,
 			easing: 'easeOutQuart',
 			duration: 250
 		})
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: '0.5rem',
 			easing: 'easeInQuart',
 			duration: 250
 		})
 		.add({
-			targets: chevron,
+			targets: elements.chevron,
 			translateY: 0,
 			easing: 'easeOutQuart',
 			duration: 500
