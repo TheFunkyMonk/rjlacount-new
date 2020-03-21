@@ -4,6 +4,7 @@ const initAnimations = () => {
 	const one = document.querySelector('#intro-one');
 	const two = document.querySelector('#intro-two');
 	const three = document.querySelector('#intro-three');
+	const four = document.querySelector('#intro-four');
 
 	[one, two, three].forEach(item => {
 		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
@@ -15,7 +16,7 @@ const initAnimations = () => {
 
 	tl
 		.add({
-			targets: [one, two, three],
+			targets: [one, two, three, four],
 			opacity: 0,
 			duration: 0
 		})
@@ -58,6 +59,11 @@ const initAnimations = () => {
 			duration: 300,
 			delay: (el, i) => 40 * i
 		}, '+=500')
+		.add({
+			targets: [four],
+			opacity: 1,
+			duration: 1000
+		}, '-=1000')
 
 }
 
