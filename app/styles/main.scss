@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 @import 'fonts';
+
+::selection {
+	@apply bg-black text-white;
+}

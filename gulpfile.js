@@ -45,7 +45,9 @@ function styles() {
 					extensions: ['html']
 				}
 			],
-			whitelistPatterns: [],
+			whitelist: [
+				'mode-dark'
+			],
 		})))
 		.pipe(dest('.tmp/styles', {
 			sourcemaps: !isProd,
