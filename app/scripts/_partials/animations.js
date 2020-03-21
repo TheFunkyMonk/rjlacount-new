@@ -1,4 +1,3 @@
-import domready from 'domready';
 import anime from 'animejs/lib/anime.es.js';
 import scrollTriggers from 'scroll-triggers';
 
@@ -108,7 +107,8 @@ const initHeroAnimation = () => {
 			opacity: [0, 1],
 			translateZ: 0,
 			duration: 500,
-			delay: (el, i) => 70 * i
+			delay: (el, i) => 70 * i,
+			complete: () => initScrollTriggers()
 		})
 		.add({
 			targets: two,
@@ -168,7 +168,6 @@ const initHeroAnimation = () => {
 
 const initAnimations = () => {
 	initHeroAnimation();
-	domready(() => initScrollTriggers());
 }
 
 export { initAnimations }
