@@ -21,7 +21,7 @@ block content
 
 	section#section-one(class='mt-8 md:mt-16 lg:mt-24 md:mb-16 relative z-10')
 		div(class='container mx-auto')
-			div(class='flex flex-wrap h-full pt-8')
+			div(class='flex flex-wrap h-full xl:pt-8')
 				div(class='w-full lg:w-1/3 px-4')
 					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') About Me
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
@@ -30,7 +30,7 @@ block content
 
 	section(class='mb-16 lg:mb-32 relative z-10 enter-card-group')
 		div(class='container mx-auto')
-			div(class='flex flex-wrap h-full')
+			div(class='flex flex-wrap h-full xl:pb-8')
 				div(class='w-full lg:w-1/3 px-4 my-4 card')
 					div(class='h-full rounded-md shadow-lg border border-gray-200 overflow-hidden px-6 md:px-8 py-6')
 						h3(class='text-2xl md:text-3xl mb-4 font-extrabold text-black antialiased') What I Do
@@ -61,15 +61,17 @@ block content
 								li Slappin&rsquo; the bass
 
 	section(class='mt-8 md:my-16 lg:my-24 md:py-16 relative z-20 bg-gray-200')
-		div(class='container mx-auto')
-			div(class='flex flex-wrap h-full py-8')
+		div(class='container mx-auto xl-py-8')
+			div(class='flex flex-wrap h-full pt-8 md:py-8 xl:py-16')
 				div(class='w-full lg:w-1/3 px-4')
-					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') My Work
+					h2(class=secondaryHeadline + ' enter-animate') My Work
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
-					p(class='my-4 mb-16 text-xl md:text-2xl leading-relaxed text-gray-700') Most of the code I write professionally is private/under NDA, but here are a few samples of fun projects you can check out.
+					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') Most of the code I write professionally is private/under NDA, but here are a few samples of fun projects you can check out.
 
-					a(href="https://stratolaunch.frb.io" target="_blank" class='block my-8 group enter-card')
-						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+			div(class='flex flex-wrap h-full py-8 xl:pb-16')
+				div(class='w-full md:w-1/2 px-4 my-4')
+					a(href="https://stratolaunch.frb.io" target="_blank" class='block h-full group enter-card')
+						div(class='h-full rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
 							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
 								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
 							h3(class='text-2xl md:text-3xl font-bold') Stratolaunch
@@ -77,8 +79,9 @@ block content
 							div(class='border-l-4 border-gray-200 pl-4')
 								p(class='my-4 md:text-lg text-gray-700') Stratolaunch&rsquo;s website was a project I developed for Turnstyle, featuring fully-customized page transition sequences built with AnimeJS and BarbaJS.
 
-					a(href="https://teague.com" target="_blank" class='block my-8 group enter-card')
-						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+				div(class='w-full md:w-1/2 px-4 my-4')
+					a(href="https://teague.com" target="_blank" class='block h-full group enter-card')
+						div(class='h-full rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
 							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
 								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
 							h3(class='text-2xl md:text-3xl font-bold') Teague
@@ -86,21 +89,31 @@ block content
 							div(class='border-l-4 border-gray-200 pl-4')
 								p(class='my-4 md:text-lg text-gray-700') Teague&rsquo;s website was Turnstyle project showcasing a highly-flexible CMS, advanced animation through GSAP, and modern JavaScript page transitions.
 
-					a(href="https://tapdat.netlify.com" target="_blank" class='block my-8 group enter-card')
-						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+				div(class='w-full md:w-1/2 px-4 my-4')
+					a(href="https://tapdat.netlify.com" target="_blank" class='block h-full group enter-card')
+						div(class='h-full rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
 							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
 								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
 							h3(class='text-2xl md:text-3xl font-bold') tapdat
 							p(class='text-gray-500') Digital Tap List
 							div(class='border-l-4 border-gray-200 pl-4')
-								p(class='my-4 md:text-lg text-gray-700') tapdat is a digital tap list app, built to be displayed above a home or office kegerator.
-								p(class='my-4 md:text-lg text-gray-700') Using Contentful, the CMS is decoupled from the front end, which is built with React and Gatsby, consuming the data via GraphQL.
+								p(class='my-4 md:text-lg text-gray-700') Using Contentful, the CMS for this digital tap list is decoupled from the front end, which is built with React and Gatsby, consuming the data via GraphQL.
+
+				div(class='w-full md:w-1/2 px-4 my-4')
+					a(href="https://tapdat.netlify.com" target="_blank" class='block h-full group enter-card')
+						div(class='h-full rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
+								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
+							h3(class='text-2xl md:text-3xl font-bold') SPHR
+							p(class='text-gray-500') WordPress Website
+							div(class='border-l-4 border-gray-200 pl-4')
+								p(class='my-4 md:text-lg text-gray-700') SPHR is a volunteer-run rescue organization that I helped update their decade-old WordPress site. It features a feed of adoptable pets, event calendar, and online adoption / volunteer applications.
 
 	section(class='md:my-16 lg:my-24 relative z-10')
 		div(class='container mx-auto')
-			div(class='flex flex-wrap h-full py-8')
+			div(class='flex flex-wrap h-full xl:py-16')
 				div(class='w-full lg:w-1/3 px-4')
-					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') Contact
+					h2(class=secondaryHeadline + ' enter-animate') Contact
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
 					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') Shoot me an email at #[a(href='mailto:rjlacount@gmail.com' class=link) rjlacount@gmail.com], and I&rsquo;ll get back to you as soon as possible.
 					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') You can download a printable copy of my resume #[a(href='resume-rj-lacount.pdf' class=link) here].

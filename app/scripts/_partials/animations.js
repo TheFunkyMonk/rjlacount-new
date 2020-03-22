@@ -15,7 +15,7 @@ const initScrollTriggers = () => {
 	scrollTriggers([
 		{
 			el: elements.enterAnimate,
-			offset: 150,
+			offset: 250,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime.set(el, {
@@ -36,7 +36,7 @@ const initScrollTriggers = () => {
 		},
 		{
 			el: elements.enterFade,
-			offset: 150,
+			offset: 250,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime({
@@ -51,7 +51,7 @@ const initScrollTriggers = () => {
 		},
 		{
 			el: elements.firstSection,
-			offset: 150,
+			offset: 250,
 			inView: (el, options) => {
 				anime({
 					targets: elements.four,
@@ -87,7 +87,7 @@ const initScrollTriggers = () => {
 		},
 		{
 			el: elements.enterCardGroup,
-			offset: 150,
+			offset: 250,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime({
@@ -108,7 +108,7 @@ const initScrollTriggers = () => {
 		},
 		{
 			el: elements.enterCard,
-			offset: 150,
+			offset: 250,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime({
@@ -167,16 +167,21 @@ const initHeroAnimation = () => {
 			delay: (el, i) => 70 * i
 		}, '+=500')
 		.add({
-			targets: [elements.three, elements.four],
+			targets: elements.three,
 			opacity: 1,
-			duration: 1000
-		}, '+=500')
+			duration: 1500
+		}, '+=250')
+		.add({
+			targets: elements.four,
+			opacity: 1,
+			duration: 750
+		}, '+=250')
 		.add({
 			targets: elements.chevron,
 			translateY: '0.5rem',
 			easing: 'easeInQuart',
 			duration: 750
-		}, '+=500')
+		}, '-=750')
 		.add({
 			targets: elements.chevron,
 			translateY: 0,
