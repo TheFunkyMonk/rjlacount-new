@@ -169,13 +169,13 @@ const initHeroAnimation = () => {
 		.add({
 			targets: elements.three,
 			opacity: 1,
-			duration: 1500
+			duration: 2000
 		}, '+=250')
 		.add({
 			targets: elements.four,
 			opacity: 1,
 			duration: 750
-		}, '+=250')
+		}, '+=750')
 		.add({
 			targets: elements.chevron,
 			translateY: '0.5rem',
