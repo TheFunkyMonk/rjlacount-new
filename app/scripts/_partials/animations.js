@@ -4,7 +4,7 @@ import scrollTriggers from 'scroll-triggers';
 import { elements } from './elements';
 
 const initScrollTriggers = () => {
-	anime.set([elements.enterAnimate, elements.enterFade, elements.enterCardGroup], {
+	anime.set([elements.enterAnimate, elements.enterFade, elements.enterCardGroup, elements.enterCard], {
 		opacity: 0
 	});
 
@@ -101,6 +101,21 @@ const initScrollTriggers = () => {
 						translateY: ['1rem', 0],
 						duration: 1000,
 						delay: (el, i) => 140 * i,
+					});
+					el.classList.add('entered');
+				}
+			}
+		},
+		{
+			el: elements.enterCard,
+			offset: 150,
+			inView: (el, options) => {
+				if (!el.classList.contains('entered')) {
+					anime({
+						targets: el,
+						opacity: [0, 1],
+						translateY: ['1rem', 0],
+						duration: 1000
 					});
 					el.classList.add('entered');
 				}

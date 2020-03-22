@@ -4,6 +4,7 @@ const setElements = () => {
 	elements.enterAnimate = document.querySelectorAll('.enter-animate');
 	elements.enterFade = document.querySelectorAll('.enter-fade');
 	elements.enterCardGroup = document.querySelectorAll('.enter-card-group');
+	elements.enterCard = document.querySelectorAll('.enter-card');
 	elements.firstSection = document.querySelector('#section-one');
 	elements.one = document.querySelector('#intro-one');
 	elements.two = document.querySelector('#intro-two');

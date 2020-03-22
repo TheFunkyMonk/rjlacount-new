@@ -19,81 +19,88 @@ block content
 							svg(class='w-8 text-white inline-block mb-8 pointer-events-none' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
 								path(fill='currentColor' d='M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z')
 
-	section#section-one(class='mt-8 md:mt-16 lg:mt-32 md:mb-16 relative z-10')
+	section#section-one(class='mt-8 md:mt-16 lg:mt-24 md:mb-16 relative z-10')
 		div(class='container mx-auto')
 			div(class='flex flex-wrap h-full pt-8')
 				div(class='w-full lg:w-1/3 px-4')
 					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') About Me
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
-					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-800') I&rsquo;m a web developer, homebrewer, and super-nerd in Seattle. I love rain, tattoos, craft beer, highfaluting coffee, and your dog. I studied graphic design before getting into development, so while I have experience up and down the development stack, my sweet spot is on the front end, working closely with designers to build out systems and bring their visions to life.
-					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-800') I currently work for #[a(href='http://www.turnstyle.studio/' class=link) Turnstyle], volunteer for #[a(href='http://seattlepersianrescue.com/' class=link) Seattle Persian and Himalayan Rescue], and chase around my internet celebrity cat, #[a(href='https://instagram.com/brimleycat' class=link) Brimley]. I take pride in my work, and am always keeping myself busy with one project or another.
+					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') I&rsquo;m a web developer, homebrewer, and super-nerd in Seattle. I love rain, tattoos, craft beer, highfaluting coffee, and your dog. While I have experience up and down the development stack, I went to school for graphic design, so my sweet spot is on the front end; I do my best work alongside visual designers to build out systems and bring their visions to life.
+					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') I currently work for #[a(href='http://www.turnstyle.studio/' target="_blank" class=link) Turnstyle], volunteer for #[a(href='http://seattlepersianrescue.com/' target="_blank" class=link) Seattle Persian and Himalayan Rescue], and chase around my internet celebrity cat, #[a(href='https://instagram.com/brimleycat' target="_blank" class=link) Brimley]. I take pride in my work, and am always keeping myself busy with one project or another.
 
-	section(class='mb-8 md:mb-16 lg:mb-32 relative z-10 enter-card-group')
+	section(class='mb-16 lg:mb-32 relative z-10 enter-card-group')
 		div(class='container mx-auto')
 			div(class='flex flex-wrap h-full')
 				div(class='w-full lg:w-1/3 px-4 my-4 card')
-					div(class='h-full rounded-md shadow-lg overflow-hidden')
-						h3(class='text-xl md:text-2xl font-bold px-6 py-4 bg-gray-200 text-black antialiased') What I Do
-						div(class='bg-white px-6 py-4 md:py-8')
-							ul(class='list-disc pl-4 md:text-lg text-gray-800')
+					div(class='h-full rounded-md shadow-lg border border-gray-200 overflow-hidden px-6 md:px-8 py-6')
+						h3(class='text-2xl md:text-3xl mb-4 font-extrabold text-black antialiased') What I Do
+						div(class='bg-white')
+							ul(class='list-disc pl-4 md:text-lg text-gray-700')
 								li Responsive websites
 								li Dynamic web apps
 								li CMS Integrations
 								li SEO Optimization
 				div(class='w-full lg:w-1/3 px-4 my-4 card')
-					div(class='h-full rounded-md shadow-lg overflow-hidden')
-						h3(class='text-xl md:text-2xl font-bold px-6 py-4 bg-gray-200 text-black antialiased') How I Do It
-						div(class='bg-white px-6 py-4 md:py-8')
-							ul(class='list-disc pl-4 md:text-lg text-gray-800')
+					div(class='h-full rounded-md shadow-lg border border-gray-200 overflow-hidden px-6 md:px-8 py-6')
+						h3(class='text-2xl md:text-3xl mb-4 font-extrabold text-black antialiased') How I Do It
+						div(class='bg-white')
+							ul(class='list-disc pl-4 md:text-lg text-gray-700')
 								li HTML, CSS, JavaScript
-								li ES6, Tailwind, Webpack
+								li Tailwind, Webpack, ES6
 								li React, Gatsby
 								li Craft CMS
 								li WordPress
 				div(class='w-full lg:w-1/3 px-4 my-4 card')
-					div(class='h-full rounded-md shadow-lg overflow-hidden')
-						h3(class='text-xl md:text-2xl font-bold px-6 py-4 bg-gray-200 text-black antialiased') Other Hobbies
-						div(class='bg-white px-6 py-4 md:py-8')
-							ul(class='list-disc pl-4 md:text-lg text-gray-800')
+					div(class='h-full rounded-md shadow-lg border border-gray-200 overflow-hidden px-6 md:px-8 py-6')
+						h3(class='text-2xl md:text-3xl mb-4 font-extrabold text-black antialiased') Other Hobbies
+						div(class='bg-white')
+							ul(class='list-disc pl-4 md:text-lg text-gray-700')
 								li Homebrewing
 								li Android tinkering
 								li Home automation
 								li Slappin&rsquo; the bass
 
-	section(class='mt-8 md:my-16 lg:my-32 relative z-10')
+	section(class='mt-8 md:my-16 lg:my-24 md:py-16 relative z-20 bg-gray-200')
 		div(class='container mx-auto')
 			div(class='flex flex-wrap h-full py-8')
 				div(class='w-full lg:w-1/3 px-4')
 					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') My Work
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
-					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-800') Most of the code I write professionally is private / under NDA, but here are a few samples of fun projects you can check out.
+					p(class='my-4 mb-16 text-xl md:text-2xl leading-relaxed text-gray-700') Most of the code I write professionally is private/under NDA, but here are a few samples of fun projects you can check out.
 
-					div(class='my-8 md:my-16 enter-fade')
-						h3(class='text-2xl md:text-4xl font-bold')
-							a(href='http://www.teague.com' class='hover:underline') Teague
-						p(class='text-xs text-gray-800') Craft CMS Website
-						p(class='my-4 md:text-lg text-gray-800') Teague&rsquo;s website is a project I developed for #[a(href='http://www.turnstyle.studio/' class=link) Turnstyle], utilizing custom advanced animation sequencing through GSAP, as well as modern JavaScript page transitions built on top of BarbaJS.
-						p(class='my-4 md:text-lg text-gray-800') This site is powered by #[a(href='https://craftcms.com/' class=link) Craft CMS], and utilizes modern tooling such as Webpack, with CI/CD to AWS servers through Forge.
+					a(href="https://stratolaunch.frb.io" target="_blank" class='block my-8 group enter-card')
+						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
+								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
+							h3(class='text-2xl md:text-3xl font-bold') Stratolaunch
+							p(class='text-gray-500') Craft CMS Website
+							div(class='border-l-4 border-gray-200 pl-4')
+								p(class='my-4 md:text-lg text-gray-700') Stratolaunch&rsquo;s website was a project I developed for Turnstyle, featuring fully-customized page transition sequences built with AnimeJS and BarbaJS.
 
-					div(class='my-8 md:my-16 enter-fade')
-						h3(class='text-2xl md:text-4xl font-bold')
-							a(href='https://www.bloodworksventures.org/' class='hover:underline') Bloodworks Ventures
-						p(class='text-xs text-gray-800') Craft CMS Website
-						p(class='my-4 md:text-lg text-gray-800') The website for Bloodworks Ventures is a project I developed for #[a(href='http://www.turnstyle.studio/' class=link) Turnstyle], bringing a smaller site to life through subtle animations and speedy page transtions.
-						p(class='my-4 md:text-lg text-gray-800') This site is powered by #[a(href='https://craftcms.com/' class=link) Craft CMS], and utilizes a wide variety of modern front end tooling including Webpack, ES6, BarbaJS, and Tailwind.
+					a(href="https://teague.com" target="_blank" class='block my-8 group enter-card')
+						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
+								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
+							h3(class='text-2xl md:text-3xl font-bold') Teague
+							p(class='text-gray-500') Craft CMS Website
+							div(class='border-l-4 border-gray-200 pl-4')
+								p(class='my-4 md:text-lg text-gray-700') Teague&rsquo;s website was Turnstyle project showcasing a highly-flexible CMS, advanced animation through GSAP, and modern JavaScript page transitions.
 
-					div(class='my-8 md:my-16 enter-fade')
-						h3(class='text-2xl md:text-4xl font-bold')
-							a(href='http://www.teague.com' class='hover:underline') tapdat
-						p(class='text-xs text-gray-800') Digital Tap List
-						p(class='my-4 md:text-lg text-gray-800') tapdat is a digital tap list app, built to be displayed above a home or office kegerator. It currently supports coffee, cider, and beer.
-						p(class='my-4 md:text-lg text-gray-800') I worked side-by-side with visual designers, originally from a Sketch file, then iterating in-browser. Using #[a(href='https://www.contentful.com/' class=link) Contentful], the CMS is decoupled as an API, allowing the app to be extremely lightweight on the front end.
+					a(href="https://tapdat.netlify.com" target="_blank" class='block my-8 group enter-card')
+						div(class='rounded-md shadow-lg border border-gray-200 bg-white px-6 md:px-8 py-6 overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300')
+							svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14.8 14.8' class='absolute top-0 right-0 m-8 w-4 transform group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform duration-300')
+								path(d='M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z')
+							h3(class='text-2xl md:text-3xl font-bold') tapdat
+							p(class='text-gray-500') Digital Tap List
+							div(class='border-l-4 border-gray-200 pl-4')
+								p(class='my-4 md:text-lg text-gray-700') tapdat is a digital tap list app, built to be displayed above a home or office kegerator.
+								p(class='my-4 md:text-lg text-gray-700') Using Contentful, the CMS is decoupled from the front end, which is built with React and Gatsby, consuming the data via GraphQL.
 
-	section(class='md:my-16 lg:my-32 relative z-10')
+	section(class='md:my-16 lg:my-24 relative z-10')
 		div(class='container mx-auto')
 			div(class='flex flex-wrap h-full py-8')
 				div(class='w-full lg:w-1/3 px-4')
 					h2(class=secondaryHeadline + ' lg:sticky lg:top-8 enter-animate') Contact
 				div(class='w-full lg:w-2/3 px-4 enter-fade')
-					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-800') Shoot me an email at #[a(href='mailto:rjlacount@gmail.com' class=link) rjlacount@gmail.com], and I&rsquo;ll get back to you as soon as possible.
-					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-800') You can download a printable copy of my resume #[a(href='resume-rj-lacount.pdf' class=link) here].
+					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') Shoot me an email at #[a(href='mailto:rjlacount@gmail.com' class=link) rjlacount@gmail.com], and I&rsquo;ll get back to you as soon as possible.
+					p(class='my-4 text-xl md:text-2xl leading-relaxed text-gray-700') You can download a printable copy of my resume #[a(href='resume-rj-lacount.pdf' class=link) here].
