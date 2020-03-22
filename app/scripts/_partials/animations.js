@@ -122,7 +122,7 @@ const initHeroAnimation = () => {
 		.add({
 			targets: elements.one,
 			opacity: 1,
-			duration: 0
+			duration: 500
 		})
 		.add({
 			targets: elements.one.querySelectorAll('span'),
