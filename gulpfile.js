@@ -3,7 +3,6 @@ const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const fs = require('fs');
 const mkdirp = require('mkdirp');
-const Modernizr = require('modernizr');
 const browserSync = require('browser-sync');
 const del = require('del');
 const autoprefixer = require('autoprefixer');
@@ -43,11 +42,11 @@ function styles() {
 			autoprefixer()
 		]))
 		.pipe($.if(isProd, $.purgecss({
-			content: ["app/*.html"],
+			content: ["app/**/*.pug"],
 			extractors: [
 				{
 					extractor: TailwindExtractor,
-					extensions: ['html']
+					extensions: ['pug']
 				}
 			],
 			whitelist: [
@@ -68,35 +67,6 @@ function scripts() {
 		.pipe(server.reload({ stream: true }));
 };
 
-async function modernizr() {
-	const readConfig = () => new Promise((resolve, reject) => {
-		fs.readFile(`${__dirname}/modernizr.json`, 'utf8', (err, data) => {
-			if (err) reject(err);
-			resolve(JSON.parse(data));
-		})
-	})
-	const createDir = () => new Promise((resolve, reject) => {
-		mkdirp(`${__dirname}/.tmp/scripts`, err => {
-			if (err) reject(err);
-			resolve();
-		})
-	});
-	const generateScript = config => new Promise((resolve, reject) => {
-		Modernizr.build(config, content => {
-			fs.writeFile(`${__dirname}/.tmp/scripts/modernizr.js`, content, err => {
-				if (err) reject(err);
-				resolve(content);
-			});
-		})
-	});
-
-	const [config] = await Promise.all([
-		readConfig(),
-		createDir()
-	]);
-	await generateScript(config);
-}
-
 const lintBase = (files, options) => {
 	return src(files)
 		.pipe($.eslint(options))
@@ -109,8 +79,16 @@ function lint() {
 		.pipe(dest('app/scripts'));
 };
 
+function views() {
+	return src('app/*.pug')
+		.pipe($.plumber())
+		.pipe($.pug({ pretty: true }))
+		.pipe(dest('.tmp'))
+		.pipe(server.reload({ stream: true }));
+}
+
 function html() {
-	return src('app/*.html')
+	return src(['app/*.html', '.tmp/*.html'])
 		.pipe($.useref({ searchPath: ['.tmp', 'app', '.'] }))
 		.pipe($.if(/\.js$/, $.uglify({ compress: { drop_console: true } })))
 		.pipe($.if(/\.css$/, $.postcss([cssnano({ safe: true, autoprefixer: false })])))
@@ -141,7 +119,8 @@ function fonts() {
 function extras() {
 	return src([
 		'app/*',
-		'!app/*.html'
+		'!app/*.html',
+		'!app/*.pug'
 	], {
 		dot: true
 	}).pipe(dest('dist'));
@@ -160,7 +139,7 @@ const build = series(
 	clean,
 	parallel(
 		lint,
-		series(parallel(styles, scripts, modernizr), html),
+		series(parallel(views, styles, scripts), html),
 		images,
 		fonts,
 		extras
@@ -186,9 +165,9 @@ function startAppServer() {
 		'.tmp/fonts/**/*'
 	]).on('change', server.reload);
 
+	watch('app/**/*.pug', views);
 	watch('app/styles/**/*.scss', styles);
 	watch('app/scripts/**/*.js', scripts);
-	watch('modernizr.json', modernizr);
 	watch('app/fonts/**/*', fonts);
 }
 
@@ -207,7 +186,7 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-	serve = series(clean, parallel(styles, scripts, modernizr, fonts), startAppServer);
+	serve = series(clean, parallel(views, styles, scripts, fonts), startAppServer);
 } else if (isProd) {
 	serve = series(build, startDistServer);
 }

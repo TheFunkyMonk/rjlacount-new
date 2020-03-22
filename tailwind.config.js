@@ -26,13 +26,14 @@ module.exports = {
 				900: '#1a202c',
 			},
 
-			blue: '#0177BD',
+			blue: '#1565C0',
 			sky: '#B2E5FC',
 			orange: '#FF9800'
 		},
 		extend: {
 			fontSize: {
 				'7xl': '5rem',
+				'8xl': '6rem',
 			},
 		},
 	},

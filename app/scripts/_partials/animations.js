@@ -4,7 +4,7 @@ import scrollTriggers from 'scroll-triggers';
 import { elements } from './elements';
 
 const initScrollTriggers = () => {
-	anime.set([elements.enterAnimate, elements.enterFade], {
+	anime.set([elements.enterAnimate, elements.enterFade, elements.enterCardGroup], {
 		opacity: 0
 	});
 
@@ -33,10 +33,7 @@ const initScrollTriggers = () => {
 					el.classList.add('entered');
 				}
 			}
-		}
-	]);
-
-	scrollTriggers([
+		},
 		{
 			el: elements.enterFade,
 			offset: 150,
@@ -51,10 +48,7 @@ const initScrollTriggers = () => {
 					el.classList.add('entered');
 				}
 			}
-		}
-	]);
-
-	scrollTriggers([
+		},
 		{
 			el: elements.firstSection,
 			offset: 150,
@@ -89,6 +83,22 @@ const initScrollTriggers = () => {
 					translateY: [0, '1rem'],
 					duration: 500
 				});
+			}
+		},
+		{
+			el: elements.enterCardGroup,
+			offset: 150,
+			inView: (el, options) => {
+				if (!el.classList.contains('entered')) {
+					anime({
+						targets: elements.enterCardGroup,
+						opacity: [0, 1],
+						translateY: ['1rem', 0],
+						duration: 1000,
+						delay: (el, i) => 140 * i,
+					});
+					el.classList.add('entered');
+				}
 			}
 		}
 	]);

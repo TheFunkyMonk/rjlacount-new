@@ -5,5 +5,5 @@ import { setEventHandlers } from './_partials/events';
 
 setElements();
 setEventHandlers();
-initDarkMode();
 initAnimations();
+// initDarkMode();

@@ -1,0 +1,45 @@
+doctype html
+html.no-js(lang='')
+	head
+		meta(charset='utf-8')
+		meta(name='description' content='')
+		meta(name='viewport' content='width=device-width, initial-scale=1')
+		title R.J. LaCount - Web Developer in Seattle, WA
+		link(rel='apple-touch-icon' href='apple-touch-icon.png')
+		meta(name='theme-color' content='#0177BD')
+		// Place favicon.ico in the root directory
+		// build:css styles/main.css
+		link(rel='stylesheet' href='styles/main.css')
+		// endbuild
+		// REMOVE ON LAUNCH
+		meta(name='robots' content='none')
+	body
+		#scroll-up(class='fixed bottom-0 right-0 m-4 w-12 h-12 text-blue dark:text-white z-20 lg:hidden opacity-0')
+			svg(class='w-full h-full pointer-events-none' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+				path(fill='currentColor' d='M0 10a10 10 0 1 1 20 0 10 10 0 0 1-20 0zm10 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm.7-10.54L14.25 11l-1.41 1.41L10 9.6l-2.83 2.8L5.76 11 10 6.76l.7.7z')
+
+		block content
+
+		footer(class='text-black lg:bg-blue lg:text-white antialiased dark:bg-gray-800 dark:text-white relative z-10')
+			div(class='container mx-auto')
+				div(class='flex flex-wrap h-full py-4')
+					div(class='w-full px-4 md:text-center')
+						p(class='text-xs font-semibold')
+							| &copy;
+							script.
+								document.write(new Date().getFullYear())
+							| &nbsp;R.J. LaCount. All rights reserved.
+
+		// Google Analytics: change UA-XXXXX-X to be your site's ID.
+		script.
+			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+			function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+			e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+			e.src='https://www.google-analytics.com/analytics.js';
+			r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+			ga('create','UA-XXXXX-X');ga('send','pageview');
+		// build:js scripts/vendor.js
+		// endbuild
+		// build:js scripts/main.js
+		script(src='scripts/main.js')
+		// endbuild
