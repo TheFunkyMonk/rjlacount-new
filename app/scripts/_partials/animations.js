@@ -91,7 +91,12 @@ const initScrollTriggers = () => {
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime({
-						targets: elements.enterCardGroup,
+						targets: el,
+						opacity: 1,
+						duration: 0,
+					});
+					anime({
+						targets: el.querySelectorAll('.card'),
 						opacity: [0, 1],
 						translateY: ['1rem', 0],
 						duration: 1000,
