@@ -174,14 +174,14 @@ const initHeroAnimation = () => {
 		.add({
 			targets: elements.four,
 			opacity: 1,
-			duration: 750
-		}, '+=750')
+			duration: 2000
+		}, '-=2000')
 		.add({
 			targets: elements.chevron,
 			translateY: '0.5rem',
 			easing: 'easeInQuart',
 			duration: 750
-		}, '-=750')
+		})
 		.add({
 			targets: elements.chevron,
 			translateY: 0,
