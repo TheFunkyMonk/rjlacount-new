@@ -115,7 +115,7 @@ const initScrollTriggers = () => {
 						targets: el,
 						opacity: [0, 1],
 						translateY: ['1rem', 0],
-						duration: 1000
+						duration: 1500
 					});
 					el.classList.add('entered');
 				}

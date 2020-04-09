@@ -108,7 +108,20 @@ function html() {
 function images() {
 	return src('app/images/**/*', { since: lastRun(images) })
 		.pipe($.imagemin())
-		.pipe(dest('dist/images'));
+		.pipe($.responsive(
+			{
+				'*': [
+					{
+						rename: { suffix: '-full' }
+					},
+					{
+						width: 100,
+						rename: { suffix: '-placeholder' }
+					}
+				]
+			}
+		))
+		.pipe($.if(!isProd, dest('.tmp/images'), dest('dist/images')));
 };
 
 function fonts() {
@@ -120,7 +133,7 @@ function extras() {
 	return src([
 		'app/*',
 		'!app/*.html',
-		'!app/*.pug'
+		'!app/*.pug',
 	], {
 		dot: true
 	}).pipe(dest('dist'));
@@ -186,7 +199,7 @@ function startDistServer() {
 
 let serve;
 if (isDev) {
-	serve = series(clean, parallel(views, styles, scripts, fonts), startAppServer);
+	serve = series(clean, parallel(views, styles, scripts, fonts, images), startAppServer);
 } else if (isProd) {
 	serve = series(build, startDistServer);
 }
