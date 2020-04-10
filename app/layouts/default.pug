@@ -2,17 +2,39 @@ doctype html
 html.no-js(lang='')
 	head
 		meta(charset='utf-8')
-		meta(name='description' content='')
-		meta(name='viewport' content='width=device-width, initial-scale=1')
-		title R.J. LaCount - Web Developer in Seattle, WA
+
+		- var title = "R.J. LaCount - Web Developer in Seattle";
+		- var description = "Designer-turned-developer specializing in bringing designs to life by working closely with visual designers.";
+
+		title #{title}
+		meta(name='title' content=title)
+		meta(name='description' content=description)
+
+		// Open Graph / Facebook
+		meta(property='og:type' content='website')
+		meta(property='og:url' content='https://rjlacount.com/')
+		meta(property='og:title' content=description)
+		meta(property='og:description' content=description)
+		meta(property='og:image' content='images/social_landscape-full.png')
+
+		// Twitter
+		meta(property='twitter:card' content='summary_large_image')
+		meta(property='twitter:url' content='https://rjlacount.com/')
+		meta(property='twitter:title' content=description)
+		meta(property='twitter:description' content=description)
+		meta(property='twitter:image' content='images/social_landscape-full.png')
+
 		link(rel='apple-touch-icon' href='apple-touch-icon.png')
-		meta(name='theme-color' content='#0177BD')
+		meta(name='theme-color' content='#1565C0')
+
 		// Place favicon.ico in the root directory
 		// build:css styles/main.css
 		link(rel='stylesheet' href='styles/main.css')
 		// endbuild
+
 		// REMOVE ON LAUNCH
 		meta(name='robots' content='none')
+
 	body
 		#scroll-up(class='fixed bottom-0 right-0 m-4 w-12 h-12 text-blue dark:text-white z-20 lg:hidden opacity-0')
 			svg(class='w-full h-full pointer-events-none' xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
