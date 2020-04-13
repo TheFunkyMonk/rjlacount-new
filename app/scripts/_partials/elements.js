@@ -5,6 +5,7 @@ const setElements = () => {
 	elements.enterFade = document.querySelectorAll('.enter-fade');
 	elements.enterCardGroup = document.querySelectorAll('.enter-card-group');
 	elements.enterCard = document.querySelectorAll('.enter-card');
+	elements.enterSocial = document.querySelectorAll('.enter-social');
 	elements.firstSection = document.querySelector('#section-one');
 	elements.one = document.querySelector('#intro-one');
 	elements.two = document.querySelector('#intro-two');

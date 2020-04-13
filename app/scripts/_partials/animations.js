@@ -4,8 +4,16 @@ import scrollTriggers from 'scroll-triggers';
 import { elements } from './elements';
 
 const initScrollTriggers = () => {
+
 	anime.set([elements.enterAnimate, elements.enterFade, elements.enterCardGroup, elements.enterCard], {
 		opacity: 0
+	});
+
+	elements.enterSocial.forEach((group) => {
+		anime.set(group.querySelectorAll('.social-icon'), {
+			opacity: 0,
+			translateY: '1rem'
+		});
 	});
 
 	elements.enterAnimate.forEach(item => {
@@ -116,6 +124,23 @@ const initScrollTriggers = () => {
 						opacity: [0, 1],
 						translateY: ['1rem', 0],
 						duration: 1500
+					});
+					el.classList.add('entered');
+				}
+			}
+		},
+		{
+			el: elements.enterSocial,
+			offset: 200,
+			inView: (el, options) => {
+				if (!el.classList.contains('entered')) {
+					anime({
+						targets: el.querySelectorAll('.social-icon'),
+						easing: 'easeInOutQuart',
+						opacity: [0, 1],
+						translateY: ['1rem', 0],
+						duration: 500,
+						delay: (el, i) => 70 * i
 					});
 					el.classList.add('entered');
 				}
