@@ -151,13 +151,6 @@ const initScrollTriggers = () => {
 
 const initHeroAnimation = () => {
 
-	const width = window.innerWidth;
-	let offset = '40%';
-	if (width > 420) offset = '42%';
-	if (width > 639) offset = '43%';
-	if (width > 767) offset = '40%';
-	if (width > 1279) offset = '36.5%';
-
 	[elements.one, elements.two, elements.three].forEach(item => {
 		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
 	});
@@ -169,13 +162,15 @@ const initHeroAnimation = () => {
 	anime.set([elements.zero, elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
+	anime.set(elements.twoWrap, {
+		width: 0,
+	});
 	elements.heroWrap.classList.remove('opacity-0');
 
 	tl
 		.add({
 			targets: elements.one,
 			opacity: 1,
-			marginLeft: offset,
 			duration: 500
 		})
 		.add({
@@ -207,10 +202,15 @@ const initHeroAnimation = () => {
 			delay: (el, i) => 70 * i
 		}, '+=750')
 		.add({
-			targets: elements.one,
-			marginLeft: 0,
-			duration: 750
-		}, '-=1000')
+			targets: elements.twoWrap,
+			width: elements.two.clientWidth + 'px',
+			duration: 1000,
+			complete: () => {
+				window.addEventListener('resize', () => {
+					if (elements.twoWrap.style.width) elements.twoWrap.style.width = null;
+				});
+			}
+		}, '-=1250')
 		.add({
 			targets: elements.three,
 			opacity: 1,

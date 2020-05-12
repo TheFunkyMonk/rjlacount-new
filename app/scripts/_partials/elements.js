@@ -11,6 +11,7 @@ const setElements = () => {
 	elements.zero = document.querySelector('#intro-zero');
 	elements.one = document.querySelector('#intro-one');
 	elements.two = document.querySelector('#intro-two');
+	elements.twoWrap = document.querySelector('#intro-two-wrap');
 	elements.three = document.querySelector('#intro-three');
 	elements.four = document.querySelector('#intro-four');
 	elements.chevron = elements.four.querySelector('svg');
