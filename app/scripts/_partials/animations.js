@@ -151,6 +151,13 @@ const initScrollTriggers = () => {
 
 const initHeroAnimation = () => {
 
+	const width = window.innerWidth;
+	let offset = '40%';
+	if (width > 420) offset = '42%';
+	if (width > 639) offset = '43%';
+	if (width > 767) offset = '40%';
+	if (width > 1279) offset = '36.5%';
+
 	[elements.one, elements.two, elements.three].forEach(item => {
 		item.innerHTML = item.textContent.replace(/\S/g, '<span class=\'inline-block\'>$&</span>');
 	});
@@ -159,14 +166,16 @@ const initHeroAnimation = () => {
 		easing: 'easeInOutQuart'
 	});
 
-	anime.set([elements.one, elements.two, elements.three, elements.four], {
+	anime.set([elements.zero, elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
+	elements.heroWrap.classList.remove('opacity-0');
 
 	tl
 		.add({
 			targets: elements.one,
 			opacity: 1,
+			marginLeft: offset,
 			duration: 500
 		})
 		.add({
@@ -179,6 +188,12 @@ const initHeroAnimation = () => {
 			complete: () => initScrollTriggers()
 		})
 		.add({
+			targets: elements.zero,
+			scale: ['1.05', 1],
+			opacity: [0, 1],
+			duration: 750,
+		}, '-=750')
+		.add({
 			targets: elements.two,
 			opacity: 1,
 			duration: 0
@@ -188,9 +203,14 @@ const initHeroAnimation = () => {
 			scale: ['0.5', 1],
 			opacity: [0, 1],
 			translateZ: 0,
-			duration: 500,
+			duration: 750,
 			delay: (el, i) => 70 * i
-		}, '+=500')
+		}, '+=750')
+		.add({
+			targets: elements.one,
+			marginLeft: 0,
+			duration: 750
+		}, '-=1000')
 		.add({
 			targets: elements.three,
 			opacity: 1,

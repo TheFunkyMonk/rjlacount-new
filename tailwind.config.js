@@ -35,6 +35,9 @@ module.exports = {
 				'7xl': '6rem',
 				'8xl': '7rem',
 			},
+			spacing: {
+				'72': '20rem',
+			},
 		},
 	},
 	variants: {

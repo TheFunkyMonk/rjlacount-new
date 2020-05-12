@@ -7,6 +7,8 @@ const setElements = () => {
 	elements.enterCard = document.querySelectorAll('.enter-card');
 	elements.enterSocial = document.querySelectorAll('.enter-social');
 	elements.firstSection = document.querySelector('#section-one');
+	elements.heroWrap = document.querySelector('#hero-wrap');
+	elements.zero = document.querySelector('#intro-zero');
 	elements.one = document.querySelector('#intro-one');
 	elements.two = document.querySelector('#intro-two');
 	elements.three = document.querySelector('#intro-three');
