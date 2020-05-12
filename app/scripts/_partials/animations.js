@@ -116,13 +116,13 @@ const initScrollTriggers = () => {
 		},
 		{
 			el: elements.enterCard,
-			offset: 350,
+			offset: 300,
 			inView: (el, options) => {
 				if (!el.classList.contains('entered')) {
 					anime({
 						targets: el,
 						opacity: [0, 1],
-						scale: ['1.02', 1],
+						scale: ['1.0125', 1],
 						duration: 1500
 					});
 					el.classList.add('entered');
