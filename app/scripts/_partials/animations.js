@@ -37,7 +37,7 @@ const initScrollTriggers = () => {
 						translateZ: 0,
 						duration: 500,
 						delay: (el, i) => 70 * i
-					});
+					}, '-=250');
 					el.classList.add('entered');
 				}
 			}
@@ -159,7 +159,7 @@ const initHeroAnimation = () => {
 		easing: 'easeInOutQuart'
 	});
 
-	anime.set([elements.zero, elements.one, elements.two, elements.three, elements.four], {
+	anime.set([elements.avatarMain, elements.avatarOutline, elements.zero, elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
 	anime.set(elements.twoWrap, {
@@ -169,10 +169,24 @@ const initHeroAnimation = () => {
 
 	tl
 		.add({
+			targets: [elements.zero, elements.avatarMain, elements.avatarOutline],
+			scale: ['1.05', 1],
+			opacity: [0, 1],
+			duration: 1500,
+		})
+		.add({
+			targets: elements.avatarOutline.querySelectorAll('path'),
+			strokeDashoffset: [anime.setDashoffset, 0],
+			easing: 'easeInOutSine',
+			duration: 500,
+			delay: function(el, i) { return i * 250 },
+			direction: 'alternate',
+		}, '-=1500')
+		.add({
 			targets: elements.one,
 			opacity: 1,
 			duration: 500
-		})
+		}, '-=750')
 		.add({
 			targets: elements.one.querySelectorAll('span'),
 			scale: ['0.5', 1],
@@ -181,12 +195,6 @@ const initHeroAnimation = () => {
 			duration: 500,
 			delay: (el, i) => 70 * i,
 			complete: () => initScrollTriggers()
-		})
-		.add({
-			targets: elements.zero,
-			scale: ['1.05', 1],
-			opacity: [0, 1],
-			duration: 750,
 		}, '-=750')
 		.add({
 			targets: elements.two,
@@ -200,7 +208,7 @@ const initHeroAnimation = () => {
 			translateZ: 0,
 			duration: 750,
 			delay: (el, i) => 70 * i
-		}, '+=500')
+		}, '+=750')
 		.add({
 			targets: elements.twoWrap,
 			width: elements.two.clientWidth + 'px',
