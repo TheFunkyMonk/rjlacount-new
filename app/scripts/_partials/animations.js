@@ -169,11 +169,16 @@ const initHeroAnimation = () => {
 
 	tl
 		.add({
-			targets: [elements.zero, elements.avatarMain, elements.avatarOutline],
-			scale: ['1.05', 1],
+			targets: [elements.zero, elements.avatarMain],
+			scale: ['1.1', 1],
 			opacity: [0, 1],
 			duration: 1500,
 		})
+		.add({
+			targets: elements.avatarOutline,
+			opacity: [0, 1],
+			duration: 1500,
+		}, '-=1500')
 		.add({
 			targets: elements.avatarOutline.querySelectorAll('path'),
 			strokeDashoffset: [anime.setDashoffset, 0],
