@@ -208,7 +208,7 @@ const initHeroAnimation = () => {
 			translateZ: 0,
 			duration: 750,
 			delay: (el, i) => 70 * i
-		}, '+=750')
+		}, '+=500')
 		.add({
 			targets: elements.twoWrap,
 			width: elements.two.clientWidth + 'px',
