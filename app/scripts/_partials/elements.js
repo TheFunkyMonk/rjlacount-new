@@ -9,9 +9,6 @@ const setElements = () => {
 	elements.firstSection = document.querySelector('#section-one');
 	elements.heroWrap = document.querySelector('#hero-wrap')
 	elements.avatar = document.querySelector('#avatar');
-	elements.avatarMain = elements.avatar.querySelector('#avatar-main');
-	elements.avatarOutline = elements.avatar.querySelector('#avatar-outline');
-	elements.zero = document.querySelector('#intro-zero');
 	elements.one = document.querySelector('#intro-one');
 	elements.two = document.querySelector('#intro-two');
 	elements.twoWrap = document.querySelector('#intro-two-wrap');

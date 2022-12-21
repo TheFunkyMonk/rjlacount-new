@@ -159,7 +159,7 @@ const initHeroAnimation = () => {
 		easing: 'easeInOutQuart'
 	});
 
-	anime.set([elements.avatarMain, elements.avatarOutline, elements.zero, elements.one, elements.two, elements.three, elements.four], {
+  anime.set([elements.avatar, elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
 	anime.set(elements.twoWrap, {
@@ -169,24 +169,20 @@ const initHeroAnimation = () => {
 
 	tl
 		.add({
-			targets: [elements.zero, elements.avatarMain],
-			scale: ['1.1', 1],
+			targets: elements.avatar,
 			opacity: [0, 1],
-			duration: 1500,
+			duration: 1000,
+			delay: 500
 		})
 		.add({
-			targets: elements.avatarOutline,
-			opacity: [0, 1],
-			duration: 1500,
-		}, '-=1500')
-		.add({
-			targets: elements.avatarOutline.querySelectorAll('path'),
-			strokeDashoffset: [anime.setDashoffset, 0],
-			easing: 'easeInOutSine',
-			duration: 500,
-			delay: function(el, i) { return i * 250 },
-			direction: 'alternate',
-		}, '-=1500')
+			targets: elements.avatar.querySelector('.avatar-main').querySelectorAll('.row div'),
+			scale: {
+				value: [0, 1],
+				easing: 'easeOutSine',
+				duration: 100
+			},
+			delay: anime.stagger(30, {grid: [19, 30], from: 'center'})
+		}, '-=750')
 		.add({
 			targets: elements.one,
 			opacity: 1,
@@ -199,6 +195,7 @@ const initHeroAnimation = () => {
 			translateZ: 0,
 			duration: 500,
 			delay: (el, i) => 70 * i,
+			endDelay: 500,
 			complete: () => initScrollTriggers()
 		}, '-=750')
 		.add({
@@ -213,7 +210,7 @@ const initHeroAnimation = () => {
 			translateZ: 0,
 			duration: 750,
 			delay: (el, i) => 70 * i
-		}, '+=500')
+		})
 		.add({
 			targets: elements.twoWrap,
 			width: elements.two.clientWidth + 'px',
@@ -223,7 +220,7 @@ const initHeroAnimation = () => {
 					if (elements.twoWrap.style.width) elements.twoWrap.style.width = null;
 				});
 			}
-		}, '-=1250')
+		}, '-=1000')
 		.add({
 			targets: elements.three,
 			opacity: 1,

@@ -28,7 +28,32 @@ module.exports = {
 
 			blue: '#1565C0',
 			sky: '#B2E5FC',
-			orange: '#FF9800'
+			orange: '#FF9800',
+			purple: {
+				400: '#9374DB',
+				600: '#7D60D2',
+				800: '#6141BF',
+			},
+			avatar: {
+				'eyes-dark': '#5F4C3F',
+				'eyes-light': '#6C5343',
+				'glasses': '#000000',
+				'earring-light': '#EBE0E0',
+				'earring-dark': '#D2C6C6',
+				'beard-light': '#343434',
+				'beard-med': '#292929',
+				'beard-dark': '#1E1E1E',
+				'skin-light': '#FFDDCF',
+				'skin-base': '#FFD5C3',
+				'skin-med': '#FFCDA4',
+				'skin-dark': '#ECB58F',
+				'skin-darker': '#DDA985',
+				'shirt-light': '#191919',
+				'shirt-dark': '#0E0E0E',
+				'jeans-dark': '#022747',
+				'jeans-light': '#063F76',
+				'shadow': '#6141BF',
+			}
 		},
 		extend: {
 			fontSize: {
