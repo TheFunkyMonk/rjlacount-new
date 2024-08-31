@@ -39,9 +39,9 @@
     "scroll-triggers": "^4.2.0",
     "tailwindcss": "^1.2.0",
     "tailwindcss-dark-mode": "^1.1.3",
-    "webpack": "^4.42.0",
+    "webpack": "^5.94.0",
     "webpack-bundle-analyzer": "^3.6.1",
-    "webpack-stream": "^5.2.1",
+    "webpack-stream": "^7.0.0",
     "yargs": "13.2.4"
   },
   "scripts": {
