@@ -16,6 +16,10 @@ const { argv } = require('yargs');
 const $ = gulpLoadPlugins();
 const server = browserSync.create();
 
+const dartSass = require('sass');
+const gulpSass = require('gulp-sass');
+const sass = gulpSass(dartSass);
+
 const port = argv.port || 9000;
 
 const isProd = process.env.NODE_ENV === 'production';
@@ -32,11 +36,11 @@ function styles() {
 		sourcemaps: !isProd,
 	})
 		.pipe($.plumber())
-		.pipe($.sass.sync({
+		.pipe(sass({
 			outputStyle: 'expanded',
 			precision: 10,
 			includePaths: ['.']
-		}).on('error', $.sass.logError))
+		}).on('error', sass.logError))
 		.pipe($.postcss([
 			tailwindcss(),
 			autoprefixer()
@@ -57,7 +61,7 @@ function styles() {
 			sourcemaps: !isProd,
 		}))
 		.pipe(server.reload({ stream: true }));
-};
+}
 
 function scripts() {
 	return src('app/scripts/main.js')
