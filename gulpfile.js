@@ -2,6 +2,7 @@
 const { src, dest, watch, series, parallel, lastRun } = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const fs = require('fs');
+const path = require('path');
 const mkdirp = require('mkdirp');
 const browserSync = require('browser-sync');
 const del = require('del');
@@ -164,6 +165,25 @@ const build = series(
 	measureSize
 );
 
+// Mimics Netlify's default clean URL resolution (e.g. /scorepad -> scorepad.html)
+// so local dev matches production without needing a redirect/rewrite config.
+function cleanUrls(baseDirs) {
+	return function (req, res, next) {
+		const [urlPath, query] = req.url.split('?');
+
+		if (urlPath !== '/' && !path.extname(urlPath)) {
+			const htmlPath = `${urlPath}.html`;
+			const exists = baseDirs.some((dir) => fs.existsSync(path.join(dir, htmlPath)));
+
+			if (exists) {
+				req.url = query ? `${htmlPath}?${query}` : htmlPath;
+			}
+		}
+
+		next();
+	};
+}
+
 function startAppServer() {
 	server.init({
 		notify: false,
@@ -172,7 +192,10 @@ function startAppServer() {
 			baseDir: ['.tmp', 'app'],
 			routes: {
 				'/node_modules': 'node_modules'
-			}
+			},
+			middleware: [
+				cleanUrls([path.join(__dirname, '.tmp'), path.join(__dirname, 'app')])
+			]
 		}
 	});
 
@@ -196,7 +219,10 @@ function startDistServer() {
 			baseDir: 'dist',
 			routes: {
 				'/node_modules': 'node_modules'
-			}
+			},
+			middleware: [
+				cleanUrls([path.join(__dirname, 'dist')])
+			]
 		}
 	});
 }
