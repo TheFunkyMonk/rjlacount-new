@@ -1,0 +1,224 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Avatar from '../components/Avatar.astro';
+import BlurImage from '../components/BlurImage.astro';
+import wildtypeImg from '../assets/images/wildtype.jpg';
+import teagueImg from '../assets/images/teague.jpg';
+import recomImg from '../assets/images/recom.jpg';
+import stowersImg from '../assets/images/stowers.jpg';
+
+const primaryHeadline =
+	'text-2xl font-bold text-5xl sm:text-6xl md:text-7xl xl:text-8xl my-4 leading-tight whitespace-nowrap';
+const secondaryHeadline =
+	'my-4 font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-purple-600 dark:text-white';
+const link = 'font-bold text-gray-800 underline hover:text-purple-600 dark:text-white transition-colors duration-150';
+
+const projects = [
+	{
+		href: 'https://www.wildtypefoods.com/',
+		image: wildtypeImg,
+		title: 'Wildtype',
+		description:
+			"Wildtype's website features advanced SVG animation and masking effects with page transitions built with Barba.js and Anime.js. Try the Konami code.",
+	},
+	{
+		href: 'https://teague.com',
+		image: teagueImg,
+		title: 'Teague',
+		description:
+			"Teague’s website incorporates a highly-flexible CMS with advanced GSAP animation sequences and modern JavaScript page transitions.",
+	},
+	{
+		href: 'https://recom.co/',
+		image: recomImg,
+		title: 'Recom',
+		description:
+			"With smooth animation highlighting a design system full of gradients and other flourishes, Recom's website didn't leave a micro-interaction unturned.",
+	},
+	{
+		href: 'https://www.stowers.org/',
+		image: stowersImg,
+		title: 'Stowers Institute',
+		description:
+			"Stowers Institute's website involved large-scale content modeling and nuanced animation to consolidate multiple websites into a single experience.",
+	},
+];
+---
+
+<Layout>
+	<section class="bg-purple-600 text-white dark:bg-gray-800 dark:text-white relative z-20 shadow-md">
+		<div id="hero-wrap" class="container mx-auto opacity-0">
+			<div class="flex flex-wrap h-full items-center justify-center min-h-screen py-8 md:py-16">
+				<div class="w-full px-4 text-center relative">
+					<div id="intro-zero" class="w-64 md:w-72 inline-block transform origin-center lg:scale-125 xl:scale-150 lg:mb-8 xl:mb-16">
+						<Avatar />
+					</div>
+
+					<h1 class={primaryHeadline}>
+						<span id="intro-one" class="inline-block">Hi!</span>
+						<span id="intro-two-wrap" class="inline-block">
+							<span id="intro-two" class="inline-block">&nbsp;I&rsquo;m R.J.</span>
+						</span>
+					</h1>
+					<p id="intro-three" class="text-2xl md:text-4xl my-4">I make stuff.</p>
+					<div class="absolute bottom-0 left-0 w-full text-center -mb-24 md:-mb-32">
+						<div id="intro-four" class="inline-block cursor-pointer">
+							<svg class="w-8 text-white inline-block mb-8 pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+								<path fill="currentColor" d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="section-one" class="mt-8 md:mt-16 lg:mt-24 md:mb-16 relative z-10">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap h-full xl:pt-8">
+				<div class="w-full lg:w-1/3 px-4">
+					<h2 class={`${secondaryHeadline} lg:sticky lg:top-8 enter-animate`}>About Me</h2>
+				</div>
+				<div class="w-full lg:w-2/3 px-4 enter-fade">
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						I&rsquo;m a web developer, bookworm, and all-around nerd in Seattle. I love rain, tattoos, craft beer, highfalutin coffee, and your dog.
+					</p>
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						While I have experience up and down the web stack, my background is in graphic design, and my sweet spot is on the front end. I do my best work closely alongside visual and UX designers, building scalable design systems and figuring out performant and accessible solutions for tricky functionality or unique layouts.
+					</p>
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						I currently work for <a href="https://turnstyle.studio/" class={link}>Turnstyle</a>. I also have a <a href="https://instagram.com/brimleycat" class={link}>famous cat</a>.
+					</p>
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						My current favorite book is <a href="https://app.thestorygraph.com/books/ac3ea915-993d-4f30-8632-0f91e4ad0704" class={link}>Project Hail Mary</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mb-16 lg:mb-32 relative z-10 enter-card-group">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap h-full xl:pb-8">
+				<div class="w-full lg:w-1/3 px-4 my-4 card">
+					<div class="h-full rounded-lg shadow-lg border border-gray-300 overflow-hidden px-6 md:px-8 py-6">
+						<h3 class="text-2xl md:text-3xl mb-4 font-extrabold text-purple-600">What I Do</h3>
+						<div class="bg-white">
+							<ul class="list-disc pl-4 md:text-lg text-gray-800">
+								<li class="text-gray-800">Responsive websites</li>
+								<li class="text-gray-800">Flexible CMS Integrations</li>
+								<li class="text-gray-800">SEO Optimization</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="w-full lg:w-1/3 px-4 my-4 card">
+					<div class="h-full rounded-lg shadow-lg border border-gray-300 overflow-hidden px-6 md:px-8 py-6">
+						<h3 class="text-2xl md:text-3xl mb-4 font-extrabold text-purple-600">How I Do It</h3>
+						<div class="bg-white">
+							<ul class="list-disc pl-4 md:text-lg text-gray-800">
+								<li class="text-gray-800">HTML, CSS, JavaScript</li>
+								<li class="text-gray-800">Node.js, Tailwind, Webpack, ES6</li>
+								<li class="text-gray-800">React, Gatsby, Vue.js</li>
+								<li class="text-gray-800">Craft CMS</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="w-full lg:w-1/3 px-4 my-4 card">
+					<div class="h-full rounded-lg shadow-lg border border-gray-300 overflow-hidden px-6 md:px-8 py-6">
+						<h3 class="text-2xl md:text-3xl mb-4 font-extrabold text-purple-600">Other Hobbies</h3>
+						<div class="bg-white">
+							<ul class="list-disc pl-4 md:text-lg text-gray-800">
+								<li class="text-gray-800">Astronomy</li>
+								<li class="text-gray-800">Reading at bars</li>
+								<li class="text-gray-800">Slappin&rsquo; the bass</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="mt-8 md:my-16 lg:my-24 md:py-16 relative z-20 bg-gray-100 border-t border-b border-gray-200">
+		<div class="container mx-auto xl-py-8">
+			<div class="flex flex-wrap h-full pt-8 md:py-8 xl:py-16">
+				<div class="w-full lg:w-1/3 px-4">
+					<h2 class={`${secondaryHeadline} enter-animate`}>My Work</h2>
+				</div>
+				<div class="w-full lg:w-2/3 px-4 enter-fade">
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						Most of the code I write professionally is private/under NDA, but here are a few fun projects you can check out.
+					</p>
+				</div>
+			</div>
+
+			<div class="flex flex-wrap h-full py-8 xl:pb-16">
+				{
+					projects.map((project) => (
+						<div class="w-full md:w-1/2 px-4 my-4">
+							<a href={project.href} class="block h-full group enter-card scale-img">
+								<div class="h-full rounded-lg shadow-lg bg-white overflow-hidden relative group-hover:shadow-2xl transform group-hover:-translate-y-1 transition duration-300">
+									<BlurImage src={project.image} alt="" class="relative z-10 w-full" />
+									<div class="relative px-6 md:px-8 py-6 border-l border-r border-b border-white bg-white z-20 h-full">
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 14.8 14.8"
+											class="absolute top-0 right-0 m-8 w-4 text-gray-800 transform group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-purple-600 transition duration-300"
+										>
+											<path fill="currentColor" d="M11.4 2H2.8V0h12v12h-2V3.4L1.4 14.8 0 13.4z" />
+										</svg>
+										<h3 class="text-2xl md:text-3xl font-bold text-gray-800 group-hover:text-purple-600 transition-colors duration-300">
+											{project.title}
+										</h3>
+										<div class="border-l-2 border-gray-300 pl-4">
+											<p class="my-4 text-sm md:text-lg text-gray-800">{project.description}</p>
+										</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+
+	<section class="md:mt-16 lg:mt-24 mb-16 md:mb-24 relative z-10">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap h-full pt-8 md:py-8 xl:py-16">
+				<div class="w-full lg:w-1/3 px-4">
+					<h2 class={`${secondaryHeadline} enter-animate`}>Contact</h2>
+				</div>
+				<div class="w-full lg:w-2/3 px-4 enter-fade">
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						Shoot me an email at <a href="mailto:rjlacount@gmail.com" class={link}>rjlacount@gmail.com</a>, and I&rsquo;ll get back to you as soon as possible.
+					</p>
+					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+						You can download a printable copy of my resume <a href="/resume-rj-lacount.pdf" class={link}>here</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="container mx-auto">
+			<div class="w-full mt-16 md:mt-32 text-center enter-social">
+				<a href="https://www.linkedin.com/in/rjlacount/" class="social-icon inline-block mx-4 w-8 md:w-12 text-gray-800 hover:text-purple-600 transition duration-150 group">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" class="transform transition duration-150 group-hover:-translate-y-1">
+						<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M306 0c168.9 0 306 137.1 306 306S474.9 612 306 612 0 474.9 0 306 137.1 0 306 0zm-95.7 478V239h-79.4v239h79.4zm286.5 0V341c0-73.4-39.2-107.5-91.5-107.5-42.1 0-61 23.2-71.6 39.5v-34h-79.4c1.1 22.4 0 239 0 239h79.4V344.5c0-7.1.5-14.3 2.6-19.4 5.7-14.3 18.8-29 40.8-29 28.7 0 40.2 21.9 40.2 54V478h79.5zM171.1 123.8c-27.2 0-44.9 17.9-44.9 41.3 0 22.9 17.2 41.3 43.9 41.3h.5c27.7 0 44.9-18.4 44.9-41.3-.5-23.5-17.2-41.3-44.4-41.3z"></path>
+					</svg>
+				</a>
+				<a href="https://github.com/TheFunkyMonk" class="social-icon inline-block mx-4 w-8 md:w-12 text-gray-800 hover:text-purple-600 transition duration-150 group">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" class="transform transition duration-150 group-hover:-translate-y-1">
+						<path fill="currentColor" d="M512 0C229.2 0 0 229.2 0 512c0 226.2 146.7 418.1 350.2 485.8 25.6 4.7 34.9-11.1 34.9-24.6 0-12.2-.5-52.6-.7-95.3-142.4 30.9-172.5-60.4-172.5-60.4-23.3-59.1-56.8-74.9-56.8-74.9-46.5-31.8 3.5-31.1 3.5-31.1 51.4 3.6 78.5 52.8 78.5 52.8 45.7 78.2 119.9 55.6 149 42.5 4.7-33 17.9-55.6 32.5-68.4-113.7-12.9-233.2-56.9-233.2-253.1 0-55.9 20-101.6 52.7-137.4-5.2-13-22.8-65.1 5.1-135.6 0 0 42.9-13.8 140.8 52.5 40.8-11.4 84.6-17 128.1-17.2 43.5.2 87.3 5.9 128.2 17.3C738 198.6 781 212.4 781 212.4c28 70.5 10.4 122.6 5.1 135.5 32.8 35.8 52.6 81.5 52.6 137.4 0 196.7-119.8 240-233.8 252.7 18.4 15.9 34.8 47 34.8 94.8 0 68.4-.7 123.6-.7 140.5 0 13.6 9.3 29.6 35.2 24.6C877.4 930 1024 738.1 1024 512 1024 229.2 794.8 0 512 0z"></path>
+					</svg>
+				</a>
+				<a href="https://www.instagram.com/brimleycat/" class="social-icon inline-block mx-4 w-8 md:w-12 text-gray-800 hover:text-purple-600 transition duration-150 group">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 612 612" class="transform transition duration-150 group-hover:-translate-y-1">
+						<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M306 0c168.9 0 306 137.1 306 306S474.9 612 306 612 0 474.9 0 306 137.1 0 306 0zm0 114.8c-51.9 0-58.5.2-78.9 1.2-20.4.9-34.3 4.2-46.4 8.9-12.6 4.9-23.2 11.4-33.9 22.1s-17.2 21.3-22.1 33.9c-4.7 12.2-8 26.1-8.9 46.4-.9 20.4-1.1 26.9-1.1 78.9s.2 58.5 1.1 78.9c.9 20.4 4.2 34.3 8.9 46.4 4.9 12.6 11.4 23.2 22.1 33.9 10.6 10.6 21.3 17.2 33.9 22.1 12.2 4.7 26.1 8 46.4 8.9 20.4.9 26.9 1.2 78.9 1.2s58.5-.2 78.9-1.2c20.4-.9 34.3-4.2 46.4-8.9 12.6-4.9 23.2-11.4 33.9-22.1 10.6-10.6 17.2-21.3 22.1-33.9 4.7-12.2 8-26.1 8.9-46.4.9-20.4 1.2-26.9 1.2-78.9s-.2-58.5-1.2-78.9c-.9-20.4-4.2-34.3-8.9-46.4-4.9-12.6-11.4-23.2-22.1-33.9-10.6-10.6-21.3-17.2-33.9-22.1-12.2-4.7-26.1-8-46.4-8.9-20.4-1-27-1.2-78.9-1.2zm0 34.4c51.1 0 57.1.2 77.3 1.1 18.6.9 28.8 4 35.5 6.6 8.9 3.5 15.3 7.6 22 14.3 6.7 6.7 10.8 13.1 14.3 22 2.6 6.7 5.7 16.9 6.6 35.5.9 20.2 1.1 26.2 1.1 77.3s-.2 57.1-1.1 77.3c-.8 18.6-4 28.8-6.6 35.5-3.5 8.9-7.6 15.3-14.3 22-6.7 6.7-13.1 10.8-22 14.3-6.7 2.6-16.9 5.7-35.5 6.6-20.2.9-26.2 1.1-77.3 1.1s-57.1-.2-77.3-1.1c-18.6-.8-28.8-4-35.5-6.6-8.9-3.5-15.3-7.6-22-14.3-6.7-6.7-10.8-13.1-14.3-22-2.6-6.7-5.7-16.9-6.6-35.5-.9-20.2-1.1-26.2-1.1-77.3s.2-57.1 1.1-77.3c.9-18.6 4-28.8 6.6-35.5 3.5-8.9 7.6-15.3 14.3-22 6.7-6.7 13.1-10.8 22-14.3 6.7-2.6 16.9-5.7 35.5-6.6 20.2-.9 26.2-1.1 77.3-1.1zm0 58.6c-54.2 0-98.2 44-98.2 98.2s44 98.2 98.2 98.2 98.2-44 98.2-98.2-44-98.2-98.2-98.2zm0 161.9c-35.2 0-63.7-28.5-63.7-63.7s28.5-63.7 63.7-63.7 63.7 28.5 63.7 63.7-28.5 63.7-63.7 63.7zm125-165.8c0 12.7-10.3 22.9-23 22.9s-22.9-10.3-22.9-22.9c0-12.7 10.3-22.9 22.9-22.9 12.8 0 23 10.2 23 22.9z"></path>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</section>
+</Layout>

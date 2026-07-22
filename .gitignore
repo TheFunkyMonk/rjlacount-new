@@ -148,3 +148,4 @@ temp/
 .yarn
 /dist
 /.tmp
+/.astro

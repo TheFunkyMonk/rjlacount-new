@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/*
+ * The original site never finished dark mode: only the hero, footer, and
+ * headlines got `dark:` treatment, body copy never did. Its toggle script
+ * was intentionally left disabled. Gating `dark:` behind a `.dark` class
+ * (rather than the v4 default of automatic prefers-color-scheme) preserves
+ * that same always-light behavior instead of exposing unreadable dark-gray
+ * text on a dark background to anyone with OS dark mode on. Flip a `.dark`
+ * class on <html> later if dark mode ever gets finished.
+ */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	/* Full palette replacement (mirrors the old tailwind.config.js `colors` block) */
+	--color-*: initial;
+	--color-transparent: transparent;
+	--color-black: #0e1317;
+	--color-white: #ffffff;
+
+	--color-gray-100: #f7fafc;
+	--color-gray-200: #edf2f7;
+	--color-gray-300: #e2e8f0;
+	--color-gray-400: #cbd5e0;
+	--color-gray-500: #a0aec0;
+	--color-gray-600: #718096;
+	--color-gray-700: #4a5568;
+	--color-gray-800: #2d3748;
+	--color-gray-900: #1a202c;
+
+	--color-blue: #1565c0;
+	--color-sky: #b2e5fc;
+	--color-orange: #ff9800;
+
+	--color-purple-400: #9374db;
+	--color-purple-600: #7d60d2;
+	--color-purple-800: #6141bf;
+
+	--color-avatar-eyes-dark: #5f4c3f;
+	--color-avatar-eyes-light: #6c5343;
+	--color-avatar-glasses: #000000;
+	--color-avatar-earring-light: #ebe0e0;
+	--color-avatar-earring-dark: #d2c6c6;
+	--color-avatar-beard-light: #343434;
+	--color-avatar-beard-med: #292929;
+	--color-avatar-beard-dark: #1e1e1e;
+	--color-avatar-skin-light: #ffddcf;
+	--color-avatar-skin-base: #ffd5c3;
+	--color-avatar-skin-med: #ffcda4;
+	--color-avatar-skin-dark: #ecb58f;
+	--color-avatar-skin-darker: #dda985;
+	--color-avatar-shirt-light: #191919;
+	--color-avatar-shirt-dark: #0e0e0e;
+	--color-avatar-jeans-dark: #022747;
+	--color-avatar-jeans-light: #063f76;
+	--color-avatar-shadow: #6141bf;
+
+	/* Full font-family replacement */
+	--font-*: initial;
+	--font-sans: Montserrat, sans-serif;
+	--font-serif: Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-mono: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+	/* Additions on top of the default scale (mirrors the old `extend` block) */
+	--text-7xl: 6rem;
+	--text-8xl: 7rem;
+	--spacing-72: 20rem;
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 400;
+	font-display: auto;
+	src:
+		url('/fonts/Montserrat-Regular.woff2') format('woff2'),
+		url('/fonts/Montserrat-Regular.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 700;
+	font-display: auto;
+	src:
+		url('/fonts/Montserrat-Bold.woff2') format('woff2'),
+		url('/fonts/Montserrat-Bold.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 800;
+	font-display: auto;
+	src:
+		url('/fonts/Montserrat-ExtraBold.woff2') format('woff2'),
+		url('/fonts/Montserrat-ExtraBold.woff') format('woff');
+}
+
+::selection {
+	@apply bg-black text-white;
+}
+
+/*
+ * Reveals "I'm R.J." via clip-path instead of animating `width`. Width-based
+ * reveals require measuring clientWidth in JS and force the browser to
+ * re-center the whole (text-align: center) line on every frame as the box
+ * grows — any mismatch between the measured value and the true rendered
+ * width leaves it resting off-center. clip-path keeps the element at its
+ * true natural width from frame one, so centering is computed once,
+ * correctly, and never needs to change. Defaults to fully revealed so the
+ * text still displays normally with JS disabled.
+ */
+#intro-two-wrap {
+	--reveal: 0%;
+	clip-path: inset(0 var(--reveal) 0 0);
+}
+
+.scale-img img {
+	transform: scale(1);
+	transition: transform 300ms ease;
+}
+
+.scale-img:hover img {
+	transform: scale(1.01);
+}

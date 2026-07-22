@@ -1,0 +1,75 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	noindex?: boolean;
+}
+
+const {
+	title = 'R.J. LaCount - Web Developer',
+	description = 'Designer-turned-developer in Seattle specializing in working closely with visual designers to bring design systems to life.',
+	noindex = false,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const ogImageUrl = new URL('/images/social_landscape.png', Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageUrl} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalUrl} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImageUrl} />
+
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="theme-color" content="#9374DB" />
+	</head>
+
+	<body class="antialiased bg-white">
+		<div id="scroll-up" class="fixed bottom-0 right-0 m-4 w-12 h-12 text-purple-600 dark:text-white z-50 lg:hidden opacity-0">
+			<svg class="w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+				<path fill="currentColor" d="M0 10a10 10 0 1 1 20 0 10 10 0 0 1-20 0zm10 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm.7-10.54L14.25 11l-1.41 1.41L10 9.6l-2.83 2.8L5.76 11 10 6.76l.7.7z"
+				></path>
+			</svg>
+		</div>
+
+		<slot />
+
+		<footer class="text-black lg:bg-purple-600 lg:text-white antialiased dark:bg-gray-800 dark:text-white relative z-10">
+			<div class="container mx-auto">
+				<div class="flex flex-wrap h-full py-4">
+					<div class="w-full px-4 md:text-center">
+						<p class="text-xs font-semibold">&copy; <span id="copyright-year">2026</span>&nbsp;R.J. LaCount. All rights reserved.</p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			document.getElementById('copyright-year')!.textContent = new Date().getFullYear().toString();
+		</script>
+		<script src="../scripts/main.js"></script>
+	</body>
+</html>

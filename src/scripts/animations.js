@@ -159,12 +159,29 @@ const initHeroAnimation = () => {
 		easing: 'easeInOutQuart'
 	});
 
-  anime.set([elements.avatar, elements.one, elements.two, elements.three, elements.four], {
+  // anime.js v3 doesn't reliably recognize CSS custom properties (e.g.
+	// `--reveal`) as an animatable DOM target, so instead we tween a plain
+	// number and push it into the custom property ourselves on each frame.
+	const twoReveal = { percent: 100 };
+
+	// "Hi!" no longer gets shoved left as a side effect of #intro-two-wrap
+	// growing (that box is full-width and stable from frame one now, so
+	// centering never recalculates). To keep the same slide-into-place look,
+	// start "Hi!" shifted right by half of the wrap's width — so it reads as
+	// centered on its own — then animate that offset back to 0 in step with
+	// the reveal. The wrap gets the exact same translateX applied to it, so
+	// it moves in lockstep with "Hi!" instead of clip-revealing in its fixed
+	// final position — otherwise the reveal starts directly underneath
+	// wherever "Hi!" still is, and the two overlap.
+	const halfWrapWidth = elements.twoWrap.clientWidth / 2;
+
+	anime.set([elements.avatar, elements.one, elements.two, elements.three, elements.four], {
 		opacity: 0,
 	});
-	anime.set(elements.twoWrap, {
-		width: 0,
+	anime.set([elements.one, elements.twoWrap], {
+		translateX: halfWrapWidth,
 	});
+	elements.twoWrap.style.setProperty('--reveal', `${twoReveal.percent}%`);
 	elements.heroWrap.classList.remove('opacity-0');
 
 	tl
@@ -212,14 +229,17 @@ const initHeroAnimation = () => {
 			delay: (el, i) => 70 * i
 		})
 		.add({
-			targets: elements.twoWrap,
-			width: elements.two.clientWidth + 'px',
+			targets: twoReveal,
+			percent: 0,
 			duration: 1000,
-			complete: () => {
-				window.addEventListener('resize', () => {
-					if (elements.twoWrap.style.width) elements.twoWrap.style.width = null;
-				});
+			update: () => {
+				elements.twoWrap.style.setProperty('--reveal', `${twoReveal.percent}%`);
 			}
+		}, '-=1000')
+		.add({
+			targets: [elements.one, elements.twoWrap],
+			translateX: 0,
+			duration: 1000,
 		}, '-=1000')
 		.add({
 			targets: elements.three,
