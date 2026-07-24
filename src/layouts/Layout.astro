@@ -47,7 +47,7 @@ const ogImageUrl = new URL('/images/social_landscape.png', Astro.site);
 		<meta name="theme-color" content="#9374DB" />
 	</head>
 
-	<body class="antialiased bg-white">
+	<body class="antialiased bg-white flex flex-col min-h-screen">
 		<div id="scroll-up" class="fixed bottom-0 right-0 m-4 w-12 h-12 text-purple-600 dark:text-white z-50 lg:hidden opacity-0">
 			<svg class="w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 				<path fill="currentColor" d="M0 10a10 10 0 1 1 20 0 10 10 0 0 1-20 0zm10 8a8 8 0 1 0 0-16 8 8 0 0 0 0 16zm.7-10.54L14.25 11l-1.41 1.41L10 9.6l-2.83 2.8L5.76 11 10 6.76l.7.7z"
@@ -55,7 +55,9 @@ const ogImageUrl = new URL('/images/social_landscape.png', Astro.site);
 			</svg>
 		</div>
 
-		<slot />
+		<main class="flex-1">
+			<slot />
+		</main>
 
 		<footer class="text-black lg:bg-purple-600 lg:text-white antialiased dark:bg-gray-800 dark:text-white relative z-10">
 			<div class="container mx-auto">

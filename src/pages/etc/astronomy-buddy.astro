@@ -1,28 +1,21 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PlainTextPage from '../../components/PlainTextPage.astro';
 
-const secondaryHeadline = 'my-4 font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-purple-600 dark:text-white';
 const link = 'font-bold text-gray-800 underline hover:text-purple-600 dark:text-white transition-colors duration-150';
 ---
 
 <Layout title="Astronomy Buddy Privacy Policy - R.J. LaCount" description="Privacy policy for the Astronomy Buddy app." noindex>
-	<section class="mt-8 md:mt-16 lg:mt-24 mb-16 md:mb-24 relative z-10">
-		<div class="container mx-auto">
-			<div class="flex flex-wrap h-full pt-8 md:py-8 xl:py-16">
-				<div class="w-full px-4">
-					<h1 class={secondaryHeadline}>Astronomy Buddy Privacy Policy</h1>
-					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
-						Astronomy Buddy sends your location to its API to calculate sky visibility and conditions for that location. No other personal data is collected, stored, or shared.
-					</p>
-					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
-						Astronomy Buddy does not use analytics, advertising, or any third-party SDKs.
-					</p>
-					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
-						If you have questions, contact <a href="mailto:rjlacount@gmail.com" class={link}>rjlacount@gmail.com</a>.
-					</p>
-					<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">Last updated: July 2026</p>
-				</div>
-			</div>
-		</div>
-	</section>
+	<PlainTextPage title="Astronomy Buddy Privacy Policy">
+		<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+			Astronomy Buddy sends your location to its API to calculate sky visibility and conditions for that location. No other personal data is collected, stored, or shared.
+		</p>
+		<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+			Astronomy Buddy does not use analytics, advertising, or any third-party SDKs.
+		</p>
+		<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">
+			If you have questions, contact <a href="mailto:rjlacount@gmail.com" class={link}>rjlacount@gmail.com</a>.
+		</p>
+		<p class="my-4 text-xl md:text-2xl leading-relaxed text-gray-800">Last updated: July 2026</p>
+	</PlainTextPage>
 </Layout>
