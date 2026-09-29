@@ -4,7 +4,7 @@ import Avatar from '../components/Avatar.astro';
 import BlurImage from '../components/BlurImage.astro';
 import wildtypeImg from '../assets/images/wildtype.jpg';
 import teagueImg from '../assets/images/teague.jpg';
-import scorepadImg from '../assets/images/scorepad.jpg';
+import bookpocketImg from '../assets/images/bookpocket.jpg';
 import astronomyBuddyImg from '../assets/images/astronomy.jpg';
 
 const primaryHeadline =
@@ -14,6 +14,13 @@ const secondaryHeadline =
 const link = 'font-bold text-gray-800 underline hover:text-purple-600 dark:text-white transition-colors duration-150';
 
 const projects = [
+	{
+		href: 'https://www.bookpocket.app/',
+		image: bookpocketImg,
+		title: 'Bookpocket',
+		description:
+			"BookPocket is a cross-platform book tracker that keeps track of where recommendations came from so you can prioritize trusted sources.",
+	},
 	{
 		href: 'https://www.wildtypefoods.com/',
 		image: wildtypeImg,
@@ -27,13 +34,6 @@ const projects = [
 		title: 'Teague',
 		description:
 			"Teague’s website incorporates a highly-flexible CMS with advanced GSAP animation sequences and modern JavaScript page transitions.",
-	},
-	{
-		href: 'https://apps.apple.com/us/app/scorepad-numpad-scorer/id6786386176',
-		image: scorepadImg,
-		title: 'ScorePad',
-		description:
-			"ScorePad is a numpad-based tally scoring iOS app I built to keep score for Cross Cribbage, but tried to make simple and flexible enough to be useful for plenty of other games too.",
 	},
 	{
 		href: 'https://astronomy-buddy.com/',
